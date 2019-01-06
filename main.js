@@ -30,21 +30,30 @@ window.onload = function() {
 		bear.addEventListener('enterframe',function(){
 		//bearにイベント登録
 		//frameに入った時のイベント
+
 			if(core.input.left) this.x -= 5;
 				//左が入力された時左に５移動
 			if(core.input.right) this.x += 5;
 				//右が入力された時右に５移動
-			if(core.input.up) this.y -= 5; 
+			if(core.input.up) this.y -= 5;
 				//上が入力された時上に５移動
 			if(core.input.down) this.y += 5;
 				//下が入力された時上に５移動			
 		});
 
 		bear.on('touchstart',function(){
-		//スマホで操作する時タッチした時起きるイベント
+		//スマホで操作する時クマをタッチした時起きるイベント
 			core.rootScene.removeChild(this);
 			//bearをタッチした時にクマが消える
 		})
+
+		core.rootScene.on('touchstart',function(e){
+		//coreのrootsceneをクリックしたときに起きるイベント
+			bear.x = e.x;
+			//bearのx座標をクリック座標のx座標にする。
+			bear.y = e.y;
+			//bearのy座標をクリック座標のy座標にする。
+		});
 
 		core.rootScene.addChild(bear);
 		//coreのrootシーンにbearを
