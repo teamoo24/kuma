@@ -34,7 +34,7 @@ window.onload = function() {
 				//左が入力された時左に５移動
 			if(core.input.right) this.x += 5;
 				//右が入力された時右に５移動
-			if(core.input.up) this.y -= 5;  
+			if(core.input.up) this.y -= 5;
 				//上が入力された時上に５移動
 			if(core.input.down) this.y += 5;
 				//下が入力された時上に５移動			
